@@ -1,0 +1,175 @@
+MONTE CARLO TVA MODEL COMPARISON - REVISED (3 models: old / new / t0var)
+==============================================================================
+Output directory : \\perf.fm.jyu.fi\homes3\khodmoah\Desktop\Extending TVA With Trial-to-Trial Variability\Review 1 on 24 08 26 -\montecarlo simulation revised
+Seed             : 12345   quick_test=False
+Scenarios        : 8   Replications/scenario: 25
+Trials/cell main : 30   reduced run: True (10/cell for ['S02_old_typical', 'S05_new_moderateVar', 'S06_new_strongVar', 'S08_t0var_strong'])
+t0 distribution  : normal (48 Gauss-Hermite nodes)
+Elapsed          : 179.8 min
+
+NUMERICAL CHECKS
+------------------------------------------------------------------------------
+  closed-form gamma PMF vs numerical quadrature                5.34e-08  pass=True
+  gamma model at cv=0.0001 vs fixed model                      8.01e-09  pass=True
+  t0var model at sigma=0.0001s vs fixed model                  1.44e-05  pass=True
+  t0var quadrature PMF vs Monte Carlo sampling                 2.83e-03  pass=True
+  gamma closed-form PMF vs Monte Carlo sampling                1.96e-03  pass=True
+  vectorised gamma PMF vs original scalar implementation       3.16e-12  pass=True
+
+MODEL SELECTION (pairwise wins / 3-way selection)
+------------------------------------------------------------------------------
+S01_old_lowC | truth=old | trials/cell=30 | n=25
+   new vs old   : AIC 1/25  BIC 0/25  mean dAIC=1.727 mean dBIC=5.767
+   t0var vs old : AIC 2/25  BIC 0/25  mean dAIC=1.590 mean dBIC=5.630
+   new vs t0var : AIC 16/25  BIC 16/25  mean dAIC=0.137
+   3-way AIC    : old 22 / new 1 / t0var 2     3-way BIC: old 25 / new 0 / t0var 0
+S02_old_typical | truth=old | trials/cell=10 | n=25
+   new vs old   : AIC 1/25  BIC 1/25  mean dAIC=1.461 mean dBIC=4.403
+   t0var vs old : AIC 5/25  BIC 0/25  mean dAIC=1.312 mean dBIC=4.253
+   new vs t0var : AIC 16/25  BIC 16/25  mean dAIC=0.150
+   3-way AIC    : old 19 / new 1 / t0var 5     3-way BIC: old 24 / new 1 / t0var 0
+S02_old_typical | truth=old | trials/cell=30 | n=25
+   new vs old   : AIC 1/25  BIC 0/25  mean dAIC=1.496 mean dBIC=5.537
+   t0var vs old : AIC 1/25  BIC 0/25  mean dAIC=1.774 mean dBIC=5.814
+   new vs t0var : AIC 21/25  BIC 21/25  mean dAIC=-0.277
+   3-way AIC    : old 23 / new 1 / t0var 1     3-way BIC: old 25 / new 0 / t0var 0
+S03_old_highC | truth=old | trials/cell=30 | n=25
+   new vs old   : AIC 5/25  BIC 0/25  mean dAIC=1.102 mean dBIC=5.142
+   t0var vs old : AIC 0/25  BIC 0/25  mean dAIC=2.037 mean dBIC=6.077
+   new vs t0var : AIC 25/25  BIC 25/25  mean dAIC=-0.935
+   3-way AIC    : old 20 / new 5 / t0var 0     3-way BIC: old 25 / new 0 / t0var 0
+S04_new_mildVar | truth=new | trials/cell=30 | n=25
+   new vs old   : AIC 1/25  BIC 1/25  mean dAIC=1.296 mean dBIC=5.336
+   t0var vs old : AIC 0/25  BIC 0/25  mean dAIC=1.744 mean dBIC=5.784
+   new vs t0var : AIC 21/25  BIC 21/25  mean dAIC=-0.448
+   3-way AIC    : old 24 / new 1 / t0var 0     3-way BIC: old 24 / new 1 / t0var 0
+S05_new_moderateVar | truth=new | trials/cell=10 | n=25
+   new vs old   : AIC 9/25  BIC 3/25  mean dAIC=-0.098 mean dBIC=2.844
+   t0var vs old : AIC 2/25  BIC 1/25  mean dAIC=1.521 mean dBIC=4.462
+   new vs t0var : AIC 23/25  BIC 23/25  mean dAIC=-1.619
+   3-way AIC    : old 15 / new 9 / t0var 1     3-way BIC: old 22 / new 3 / t0var 0
+S05_new_moderateVar | truth=new | trials/cell=30 | n=25
+   new vs old   : AIC 14/25  BIC 7/25  mean dAIC=-1.825 mean dBIC=2.216
+   t0var vs old : AIC 3/25  BIC 1/25  mean dAIC=1.235 mean dBIC=5.276
+   new vs t0var : AIC 22/25  BIC 22/25  mean dAIC=-3.060
+   3-way AIC    : old 8 / new 14 / t0var 3     3-way BIC: old 17 / new 7 / t0var 1
+S06_new_strongVar | truth=new | trials/cell=10 | n=25
+   new vs old   : AIC 18/25  BIC 9/25  mean dAIC=-2.632 mean dBIC=0.309
+   t0var vs old : AIC 4/25  BIC 1/25  mean dAIC=1.225 mean dBIC=4.166
+   new vs t0var : AIC 24/25  BIC 24/25  mean dAIC=-3.857
+   3-way AIC    : old 6 / new 18 / t0var 1     3-way BIC: old 16 / new 9 / t0var 0
+S06_new_strongVar | truth=new | trials/cell=30 | n=25
+   new vs old   : AIC 25/25  BIC 22/25  mean dAIC=-13.567 mean dBIC=-9.526
+   t0var vs old : AIC 0/25  BIC 0/25  mean dAIC=1.748 mean dBIC=5.788
+   new vs t0var : AIC 25/25  BIC 25/25  mean dAIC=-15.314
+   3-way AIC    : old 0 / new 25 / t0var 0     3-way BIC: old 3 / new 22 / t0var 0
+S07_t0var_moderate | truth=t0var | trials/cell=30 | n=25
+   new vs old   : AIC 1/25  BIC 0/25  mean dAIC=1.686 mean dBIC=5.726
+   t0var vs old : AIC 12/25  BIC 3/25  mean dAIC=-1.055 mean dBIC=2.985
+   new vs t0var : AIC 7/25  BIC 7/25  mean dAIC=2.742
+   3-way AIC    : old 13 / new 0 / t0var 12     3-way BIC: old 22 / new 0 / t0var 3
+S08_t0var_strong | truth=t0var | trials/cell=10 | n=25
+   new vs old   : AIC 5/25  BIC 1/25  mean dAIC=1.076 mean dBIC=4.017
+   t0var vs old : AIC 21/25  BIC 17/25  mean dAIC=-5.323 mean dBIC=-2.381
+   new vs t0var : AIC 1/25  BIC 1/25  mean dAIC=6.399
+   3-way AIC    : old 3 / new 1 / t0var 21     3-way BIC: old 8 / new 0 / t0var 17
+S08_t0var_strong | truth=t0var | trials/cell=30 | n=25
+   new vs old   : AIC 10/25  BIC 5/25  mean dAIC=-1.388 mean dBIC=2.653
+   t0var vs old : AIC 25/25  BIC 23/25  mean dAIC=-15.541 mean dBIC=-11.501
+   new vs t0var : AIC 1/25  BIC 1/25  mean dAIC=14.154
+   3-way AIC    : old 0 / new 1 / t0var 24     3-way BIC: old 2 / new 1 / t0var 22
+
+CONFUSION MATRIX (rows: truth, cols: selected; proportions)
+------------------------------------------------------------------------------
+  trials/cell=10  AIC
+     truth         old      new    t0var
+     new          0.42     0.54     0.04
+     old          0.76     0.04     0.20
+     t0var        0.12     0.04     0.84
+  trials/cell=10  BIC
+     truth         old      new    t0var
+     new          0.76     0.24     0.00
+     old          0.96     0.04     0.00
+     t0var        0.32     0.00     0.68
+  trials/cell=30  AIC
+     truth         old      new    t0var
+     new          0.43     0.53     0.04
+     old          0.87     0.09     0.04
+     t0var        0.26     0.02     0.72
+  trials/cell=30  BIC
+     truth         old      new    t0var
+     new          0.59     0.40     0.01
+     old          1.00     0.00     0.00
+     t0var        0.48     0.02     0.50
+
+BOUNDARY-NULL CHECK (old-truth data: expected vs observed false alarms)
+------------------------------------------------------------------------------
+  trials/cell=10 new    AIC: expected 1.97 wins of 25 (rate 0.079) | observed 1 (rate 0.040, CI 0.01-0.20)
+  trials/cell=10 new    BIC: expected 0.33 wins of 25 (rate 0.013) | observed 1 (rate 0.040, CI 0.01-0.20)
+  trials/cell=10 t0var  AIC: expected 1.97 wins of 25 (rate 0.079) | observed 5 (rate 0.200, CI 0.09-0.39)
+  trials/cell=10 t0var  BIC: expected 0.33 wins of 25 (rate 0.013) | observed 0 (rate 0.000, CI 0.00-0.13)
+  trials/cell=30 new    AIC: expected 5.90 wins of 75 (rate 0.079) | observed 7 (rate 0.093, CI 0.05-0.18)
+  trials/cell=30 new    BIC: expected 0.52 wins of 75 (rate 0.007) | observed 0 (rate 0.000, CI 0.00-0.05)
+  trials/cell=30 t0var  AIC: expected 5.90 wins of 75 (rate 0.079) | observed 3 (rate 0.040, CI 0.01-0.11)
+  trials/cell=30 t0var  BIC: expected 0.52 wins of 75 (rate 0.007) | observed 0 (rate 0.000, CI 0.00-0.05)
+
+PARAMETER RECOVERY (bias / RMSE)
+------------------------------------------------------------------------------
+S01_old_lowC | trials/cell=30 | truth=old
+   old    C: bias=-0.009 rmse=1.793 | K: bias=-0.018 rmse=0.066 | t0_ms: bias=+0.414 rmse=1.452
+   new    C: bias=+0.364 rmse=1.946 | K: bias=-0.023 rmse=0.066 | t0_ms: bias=+0.507 rmse=1.518 | cv_C: bias=+0.069 rmse=0.115
+   t0var  C: bias=+0.382 rmse=1.945 | K: bias=-0.021 rmse=0.066 | t0_ms: bias=+1.175 rmse=2.256 | sigma_t0_ms: bias=+3.195 rmse=5.438
+S02_old_typical | trials/cell=10 | truth=old
+   old    C: bias=+1.030 rmse=3.161 | K: bias=+0.030 rmse=0.081 | t0_ms: bias=+0.191 rmse=2.120
+   new    C: bias=+2.855 rmse=5.705 | K: bias=+0.020 rmse=0.080 | t0_ms: bias=+0.538 rmse=2.796 | cv_C: bias=+0.137 rmse=0.192
+   t0var  C: bias=+2.787 rmse=4.825 | K: bias=+0.020 rmse=0.079 | t0_ms: bias=+2.225 rmse=4.444 | sigma_t0_ms: bias=+3.656 rmse=6.133
+S02_old_typical | trials/cell=30 | truth=old
+   old    C: bias=+0.435 rmse=2.346 | K: bias=-0.019 rmse=0.061 | t0_ms: bias=+0.133 rmse=0.870
+   new    C: bias=+1.228 rmse=2.735 | K: bias=-0.025 rmse=0.064 | t0_ms: bias=+0.201 rmse=0.863 | cv_C: bias=+0.097 rmse=0.142
+   t0var  C: bias=+0.731 rmse=2.597 | K: bias=-0.020 rmse=0.063 | t0_ms: bias=+0.504 rmse=1.351 | sigma_t0_ms: bias=+1.093 rmse=2.453
+S03_old_highC | trials/cell=30 | truth=old
+   old    C: bias=+0.623 rmse=2.505 | K: bias=-0.003 rmse=0.059 | t0_ms: bias=+1.006 rmse=1.664
+   new    C: bias=+2.933 rmse=4.331 | K: bias=-0.011 rmse=0.063 | t0_ms: bias=+1.779 rmse=2.518 | cv_C: bias=+0.144 rmse=0.177
+   t0var  C: bias=+0.700 rmse=2.513 | K: bias=-0.003 rmse=0.059 | t0_ms: bias=+1.086 rmse=1.674 | sigma_t0_ms: bias=+0.227 rmse=0.426
+S04_new_mildVar | trials/cell=30 | truth=new
+   old    C: bias=-0.519 rmse=2.048 | K: bias=+0.007 rmse=0.059 | t0_ms: bias=+0.263 rmse=0.869
+   new    C: bias=+0.497 rmse=2.449 | K: bias=-0.000 rmse=0.057 | t0_ms: bias=+0.344 rmse=0.873 | cv_C: bias=-0.015 rmse=0.097
+   t0var  C: bias=-0.063 rmse=2.026 | K: bias=+0.004 rmse=0.057 | t0_ms: bias=+0.901 rmse=1.787 | sigma_t0_ms: bias=+1.655 rmse=3.405
+S05_new_moderateVar | trials/cell=10 | truth=new
+   old    C: bias=-2.478 rmse=4.126 | K: bias=+0.033 rmse=0.099 | t0_ms: bias=-0.574 rmse=1.731
+   new    C: bias=+1.321 rmse=5.101 | K: bias=+0.003 rmse=0.091 | t0_ms: bias=-0.157 rmse=1.497 | cv_C: bias=-0.027 rmse=0.163
+   t0var  C: bias=-1.307 rmse=4.273 | K: bias=+0.025 rmse=0.096 | t0_ms: bias=+0.946 rmse=3.450 | sigma_t0_ms: bias=+3.308 rmse=6.638
+S05_new_moderateVar | trials/cell=30 | truth=new
+   old    C: bias=-3.670 rmse=4.214 | K: bias=-0.004 rmse=0.068 | t0_ms: bias=-0.432 rmse=1.049
+   new    C: bias=-0.596 rmse=3.017 | K: bias=-0.030 rmse=0.073 | t0_ms: bias=-0.022 rmse=0.831 | cv_C: bias=-0.020 rmse=0.086
+   t0var  C: bias=-3.168 rmse=3.805 | K: bias=-0.008 rmse=0.067 | t0_ms: bias=+0.327 rmse=1.683 | sigma_t0_ms: bias=+2.516 rmse=5.283
+S06_new_strongVar | trials/cell=10 | truth=new
+   old    C: bias=-6.996 rmse=8.136 | K: bias=+0.097 rmse=0.135 | t0_ms: bias=-1.559 rmse=2.883
+   new    C: bias=-0.565 rmse=6.829 | K: bias=+0.032 rmse=0.094 | t0_ms: bias=-0.223 rmse=2.335 | cv_C: bias=-0.037 rmse=0.139
+   t0var  C: bias=-6.150 rmse=7.694 | K: bias=+0.087 rmse=0.127 | t0_ms: bias=-0.248 rmse=3.488 | sigma_t0_ms: bias=+7.018 rmse=12.063
+S06_new_strongVar | trials/cell=30 | truth=new
+   old    C: bias=-6.653 rmse=6.841 | K: bias=+0.065 rmse=0.093 | t0_ms: bias=-1.436 rmse=2.012
+   new    C: bias=+0.256 rmse=2.461 | K: bias=-0.007 rmse=0.057 | t0_ms: bias=-0.180 rmse=0.863 | cv_C: bias=-0.010 rmse=0.070
+   t0var  C: bias=-6.552 rmse=6.763 | K: bias=+0.064 rmse=0.092 | t0_ms: bias=-1.276 rmse=2.005 | sigma_t0_ms: bias=+2.243 rmse=3.894
+S07_t0var_moderate | trials/cell=30 | truth=t0var
+   old    C: bias=-2.075 rmse=2.933 | K: bias=+0.023 rmse=0.057 | t0_ms: bias=-2.613 rmse=3.112
+   new    C: bias=-1.524 rmse=2.522 | K: bias=+0.019 rmse=0.055 | t0_ms: bias=-2.478 rmse=2.950 | cv_C: bias=+0.077 rmse=0.122
+   t0var  C: bias=-0.457 rmse=2.810 | K: bias=+0.012 rmse=0.054 | t0_ms: bias=-0.541 rmse=2.992 | sigma_t0_ms: bias=-2.963 rmse=6.007
+S08_t0var_strong | trials/cell=10 | truth=t0var
+   old    C: bias=-4.379 rmse=5.720 | K: bias=+0.030 rmse=0.110 | t0_ms: bias=-6.900 rmse=8.245
+   new    C: bias=-2.462 rmse=5.774 | K: bias=+0.014 rmse=0.112 | t0_ms: bias=-6.402 rmse=7.697 | cv_C: bias=+0.125 rmse=0.228
+   t0var  C: bias=+2.156 rmse=6.925 | K: bias=-0.018 rmse=0.107 | t0_ms: bias=+0.840 rmse=6.554 | sigma_t0_ms: bias=-0.225 rmse=7.356
+S08_t0var_strong | trials/cell=30 | truth=t0var
+   old    C: bias=-4.750 rmse=5.040 | K: bias=+0.047 rmse=0.074 | t0_ms: bias=-6.215 rmse=6.453
+   new    C: bias=-1.942 rmse=3.242 | K: bias=+0.020 rmse=0.063 | t0_ms: bias=-5.412 rmse=5.692 | cv_C: bias=+0.235 rmse=0.284
+   t0var  C: bias=-0.045 rmse=2.987 | K: bias=+0.007 rmse=0.061 | t0_ms: bias=-0.160 rmse=3.385 | sigma_t0_ms: bias=+0.666 rmse=4.211
+
+INTERPRETATION GUIDE
+------------------------------------------------------------------------------
+* Old-truth (S01-S03): both variability models should be rejected by BIC; AIC false alarms
+  should match the boundary-null expectation (~7.9% per pairwise comparison).
+* Speed-variability truth (S04-S06): 'new' should beat both 'old' and 't0var' as cv grows;
+  't0var' fitted to these data should show biased C (this is the cross-fit R1 asked for).
+* Threshold-variability truth (S07-S08): 't0var' should win and 'new' should NOT absorb
+  the variability (shows the two models are distinguishable, R2 point 2).
+* Reduced-trial run: shows how model selection degrades with 140 trials (R2 point 3).
