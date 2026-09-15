@@ -1,0 +1,7 @@
+check,statistic,value,pass
+closed-form gamma PMF vs numerical quadrature,max abs diff,5.342899719472296e-08,True
+gamma model at cv=0.0001 vs fixed model,max abs diff,8.008964602623792e-09,True
+t0var model at sigma=0.0001s vs fixed model,max abs diff,1.4390938827685273e-05,True
+t0var quadrature PMF vs Monte Carlo sampling,max abs diff,0.0028347896000738837,True
+gamma closed-form PMF vs Monte Carlo sampling,max abs diff,0.0019559796385825168,True
+vectorised gamma PMF vs original scalar implementation,max abs diff,3.1576973024208255e-12,True
