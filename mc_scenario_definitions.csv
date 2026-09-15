@@ -1,0 +1,9 @@
+scenario_name,truth_model,true_C,true_K,true_t0_s,true_cv_C,true_sigma_t0_s,speed_dist
+S01_old_lowC,old,32.0,3.4,0.015,0.0001,0.0,gamma
+S02_old_typical,old,42.0,3.6,0.018,0.0001,0.0,gamma
+S03_old_highC,old,52.0,3.8,0.02,0.0001,0.0,gamma
+S04_new_mildVar,new,42.0,3.6,0.018,0.15,0.0,gamma
+S05_new_moderateVar,new,42.0,3.6,0.018,0.3,0.0,gamma
+S06_new_strongVar,new,42.0,3.6,0.018,0.45,0.0,gamma
+S07_t0var_moderate,t0var,42.0,3.6,0.018,0.0,0.01,gamma
+S08_t0var_strong,t0var,42.0,3.6,0.018,0.0,0.02,gamma
